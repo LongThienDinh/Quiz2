@@ -1,0 +1,137 @@
+@startuml
+object "testDocument:Document" as doc {
+  characters = ['H','e','l','l','o','W','o','r','l','d','C','S','5','8','0','0']
+}
+
+object "propertiesFactory:CharacterPropertiesFactory" as propertiesFactory {
+  flyweights = HashMap[("ArialBlack16"), ("ArialBlack14"), ("VerdanaBlue18"), ("VerdanaRed12")]
+}
+
+object "flyweights[VerdanaRed12]:CharacterProperties" as VerdanaRedProperties {
+  font = "Verdana"
+  color = "Red"
+  size = 12
+}
+
+object "flyweights[VerdanaBlue18]:CharacterProperties" as VerdanaBlueProperties {
+  font = "Verdana"
+  color = "Blue"
+  size = 18
+}
+
+object "flyweights[ArialBlack14]:CharacterProperties" as ArialBlack14Properties {
+  font = "Arial"
+  color = "Black"
+  size = 14
+}
+
+object "flyweights[ArialBlack16]:CharacterProperties" as ArialBlack16Properties {
+  font = "Arial"
+  color = "Black"
+  size = 16
+}
+
+object "characters[0]:Character" as charH {
+  character = 'H'
+}
+
+object "characters[1]:Character" as charE {
+  character = 'e'
+}
+
+object "characters[2]:Character" as charL1 {
+  character = 'l'
+}
+
+object "characters[3]:Character" as charL2 {
+  character = 'l'
+}
+
+object "characters[4]:Character" as charO {
+  character = 'o'
+}
+
+object "characters[5]:Character" as charW {
+  character = 'W'
+}
+
+object "characters[6]:Character" as charO2 {
+  character = 'o'
+}
+
+object "characters[7]:Character" as charR {
+  character = 'r'
+}
+
+object "characters[8]:Character" as charL3 {
+  character = 'l'
+}
+
+object "characters[9]:Character" as charD {
+  character = 'd'
+}
+
+object "characters[10]:Character" as charC {
+  character = 'C'
+}
+
+object "characters[11]:Character" as charS {
+  character = 'S'
+}
+
+object "characters[12]:Character" as char5 {
+  character = '5'
+}
+
+object "characters[13]:Character" as char8 {
+  character = '8'
+}
+
+object "characters[14]:Character" as charZ1 {
+  character = '0'
+}
+
+object "characters[15]:Character" as charZ2 {
+  character = '0'
+}
+
+doc *-- charH : own a >
+doc *-- charE : own a >
+doc *-- charL1 : own a >
+doc *-- charL2 : own a >
+doc *-- charO : own a >
+doc *-- charW : own a >
+doc *-- charO2 : own a >
+doc *-- charR : own a >
+doc *-- charL3 : own a >
+doc *-- charD : own a >
+doc *-- charC : own a >
+doc *-- charS : own a >
+doc *-- char5 : own a >
+doc *-- char8 : has a >
+doc *-- charZ1 : own a >
+doc *-- charZ2 : own a >
+doc *-- propertiesFactory : own a >
+
+propertiesFactory o-- VerdanaRedProperties : has a >
+propertiesFactory o-- VerdanaBlueProperties : has a >
+propertiesFactory o-- ArialBlack14Properties : has a >
+propertiesFactory o-- ArialBlack16Properties : has a >
+
+charH o-- ArialBlack16Properties : has a >
+charE o-- ArialBlack14Properties : has a >
+charL1 o-- ArialBlack14Properties : has a >
+charL2 o-- ArialBlack14Properties : has a >
+charO o-- ArialBlack14Properties : has a >
+charW o-- ArialBlack16Properties : has a >
+charO2 o-- ArialBlack14Properties : has a >
+charR o-- ArialBlack14Properties : has a >
+charL3 o-- ArialBlack14Properties : has a >
+charD o-- ArialBlack14Properties : has a >
+charC o-- VerdanaBlueProperties : has a >
+charS o-- VerdanaBlueProperties : has a >
+char5 o-- VerdanaRedProperties : has a >
+charE o-- VerdanaRedProperties : has a >
+charZ1 o-- VerdanaRedProperties : has a >
+charZ2 o-- VerdanaRedProperties : has a >
+@enduml
